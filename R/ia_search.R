@@ -19,7 +19,7 @@
 ia_search <- function(terms, num_results = 5, page = 1, print_url = FALSE,
                       print_total = TRUE) {
 
-  check_search_terms(terms)
+  check_search_fields(terms)
   terms <- format_search(terms)
   base <- "https://archive.org/"
   path  <- "advancedsearch.php"
