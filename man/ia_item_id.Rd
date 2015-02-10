@@ -7,11 +7,11 @@
 ia_item_id(item)
 }
 \arguments{
-\item{item}{A list object describing an Internet Archive item returned from
+\item{item}{A list describing an Internet Archive items returned from
 the API. This argument is vectorized.}
 }
 \value{
-A character vector containing the item ID.
+A character vector containing the item IDs.
 }
 \description{
 Access the item IDs from an Internet Archive items
