@@ -1,14 +1,19 @@
-#' Get the metadata for an Internet Archive item
+#' Get the metadata for Internet Archive items
 #'
 #' @param item_id A character vector containing the ID for an Internet Archive
-#'   item.
-#' @return A list containing the metadata returned by the API.
+#'   item. This argument is vectorized, so you can retrieve multiple items at
+#'   once.
+#' @param silence If false, print the item IDs as they are retrieved
+#' @return A list containing the metadata returned by the API. List names
+#'   correspond to the item IDs.
 #' @export
-ia_get_item <- function(item_id) {
+ia_get_items <- function(item_id, silence = FALSE) {
   path <- paste("details", item_id, sep = "/")
+  if (!silence) message(paste("Getting", item_id))
   req <- GET("https://archive.org/", path = path, query = list(output = "json"))
   warn_for_status(req)
   result <- content(req, as = "text")
   if (identical(result, "")) stop("")
   fromJSON(result, simplifyVector = FALSE)
 }
+ia_get_items <- Vectorize(ia_get_items, SIMPLIFY = FALSE)

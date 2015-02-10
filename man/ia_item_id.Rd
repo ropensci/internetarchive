@@ -2,18 +2,18 @@
 % Please edit documentation in R/ia_item_id.R
 \name{ia_item_id}
 \alias{ia_item_id}
-\title{Access the item ID from an Internet Archive item}
+\title{Access the item IDs from an Internet Archive items}
 \usage{
 ia_item_id(item)
 }
 \arguments{
 \item{item}{A list object describing an Internet Archive item returned from
-the API.}
+the API. This argument is vectorized.}
 }
 \value{
 A character vector containing the item ID.
 }
 \description{
-Access the item ID from an Internet Archive item
+Access the item IDs from an Internet Archive items
 }
 
