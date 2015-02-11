@@ -54,6 +54,14 @@ You can change the number of items returned by the search using the `num_results
 
 Notice that `ia_search()` and `ia_keyword_search()` both return a character vector of identifiers, so both can be used in the same way at the beginning of a pipeline.
 
+### Dates
+
+To search by a date range, use the `date` field and the years (or [ISO 8601 dates](http://en.wikipedia.org/wiki/ISO_8601)) separated by `TO`. Here we search for publications by the American Tract Society in the 1840s.
+
+```{r}
+ia_search(c("publisher" = "american tract society", date = "1840 TO 1850"))
+```
+
 ## Getting item metadata and files
 
 Once you have retrieved a list of items, you can retrieve their metadata and the list of files associated with the items.

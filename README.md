@@ -1,11 +1,10 @@
-# internetarchive
+# internetarchive: An R client to the Internet Archive API
 
 This API client for the [Internet Archive](https://archive.org/) is intended primarily for searching for items, retrieving metadata for items, and downloading the files associated with the items. The functions can be used with the pipe operator (`%>%`) from [magrittr](https://github.com/smbache/magrittr) and the data manipulation verbs in [dplyr](https://github.com/hadley/dplyr) to create pipelines from searching to downloading. For the full details of what is possible with the Internet Archive API, see their [advanced search help](https://archive.org/advancedsearch.php).
 
 ## Installation
 
 Install the [development version](https://github.com/lmullen/internetarchive) from GitHub.
-
 
 ```r
 # install.packages("devtools")
@@ -68,6 +67,25 @@ ia_search(ats_query, num_results = 20)
 You can change the number of items returned by the search using the `num_results =` argument, and you can request subsequent pages of results with the `page =` argument.
 
 Notice that `ia_search()` and `ia_keyword_search()` both return a character vector of identifiers, so both can be used in the same way at the beginning of a pipeline.
+
+### Dates
+
+To search by a date range, use the `date` field and the years (or [ISO 8601 dates](http://en.wikipedia.org/wiki/ISO_8601)) separated by `TO`. Here we search for publications by the American Tract Society in the 1840s.
+
+
+```r
+ia_search(c("publisher" = "american tract society", date = "1840 TO 1850"))
+```
+
+```
+## 86 total items found. This query requested 5 results.
+```
+
+```
+## [1] "scripturebiogra00hookgoog" "historyreformat22aubgoog" 
+## [3] "memoirmrssarahl00hookgoog" "circulationandc00socigoog"
+## [5] "historyreformat09aubgoog"
+```
 
 ## Getting item metadata and files
 
