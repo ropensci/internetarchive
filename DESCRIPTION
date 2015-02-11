@@ -12,9 +12,11 @@ LazyData: TRUE
 Roxygen: list(wrap = FALSE)
 URL: https://github.com/lmullen/internetarchive
 BugReports: https://github.com/lmullen/internetarchive/issues
-Depends:
+Depends: 
     R (>= 3.1.2)
-Imports:
+Imports: 
     httr (>= 0.6.1),
     jsonlite (>= 0.9.14),
     dplyr (>= 0.4.1)
+Suggests: knitr
+VignetteBuilder: knitr
