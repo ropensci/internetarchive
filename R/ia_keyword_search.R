@@ -12,10 +12,10 @@
 ia_keyword_search <- function(keywords, num_results = 5, page = 1,
                               print_total = TRUE) {
 
-  terms <- paste0("(", terms, ")")
+  keywords <- paste0("(", keywords, ")")
   base <- "https://archive.org/"
   path  <- "advancedsearch.php"
-  query <- list("q" = terms, "fl[]" = "identifier", "rows" = num_results,
+  query <- list("q" = keywords, "fl[]" = "identifier", "rows" = num_results,
                 "page" = page, "output" = "json")
   url <-  modify_url(base, path = path, query = query)
   req <- GET(url)
