@@ -9,7 +9,7 @@
 #' @examples
 #' ia_keyword_search("isaac hecker", num_results = 20)
 #' @export
-ia_keyword_search <- function(terms, num_results = 5, page = 1,
+ia_keyword_search <- function(keywords, num_results = 5, page = 1,
                               print_total = TRUE) {
 
   terms <- paste0("(", terms, ")")

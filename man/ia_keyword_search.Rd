@@ -4,17 +4,17 @@
 \alias{ia_keyword_search}
 \title{Perform an simple keyword search of the Internet Archive.}
 \usage{
-ia_keyword_search(terms, num_results = 5, page = 1, print_total = TRUE)
+ia_keyword_search(keywords, num_results = 5, page = 1, print_total = TRUE)
 }
 \arguments{
+\item{keywords}{The keywords to search for.}
+
 \item{num_results}{The number of results to return per page.}
 
 \item{page}{When results are paged, which page of results to return.}
 
 \item{print_total}{Should the total number of results for this query be
 printed as a message?}
-
-\item{keywords}{The keywords to search for.}
 }
 \value{
 A character vector of Internet Archive item IDs.
