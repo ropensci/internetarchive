@@ -18,7 +18,6 @@ ia_keyword_search <- function(terms, num_results = 5, page = 1,
   query <- list("q" = terms, "fl[]" = "identifier", "rows" = num_results,
                 "page" = page, "output" = "json")
   url <-  modify_url(base, path = path, query = query)
-  message(url)
   req <- GET(url)
   warn_for_status(req)
   result <- content(req, as = "text")
