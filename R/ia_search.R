@@ -14,7 +14,13 @@
 #' @return A character vector of Internet Archive item IDs.
 #'
 #' @references See the documentation on the Internet Archive's
-#' \href{https://archive.org/advancedsearch.php}{advanced search page}.
+#'   \href{https://archive.org/advancedsearch.php}{advanced search page}.
+#' @examples
+#' query1 <- c("title" = "damnation of theron ware")
+#' ia_search(query1)
+#' query2 <- c("title" = "damnation of theron ware",
+#'             "contributor" = "gutenberg")
+#' ia_search(query2)
 #' @export
 ia_search <- function(terms, num_results = 5, page = 1, print_url = FALSE,
                       print_total = TRUE) {
@@ -35,7 +41,8 @@ ia_search <- function(terms, num_results = 5, page = 1, print_url = FALSE,
   response <- fromJSON(result, simplifyVector = FALSE)
 
   if (print_total)
-    message(paste(response$response$numFound, "total items found."))
+    message(paste(response$response$numFound, "total items found.",
+                  "This query requested", num_results, "results."))
 
   unlist(response$response$docs, use.names = FALSE)
 

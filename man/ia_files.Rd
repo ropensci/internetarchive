@@ -16,4 +16,11 @@ A list containing the files as a list of character vectors.
 \description{
 Access the list of files associated with an Internet Archive item
 }
+\examples{
+ats_query <- c("publisher" = "american tract society")
+ids       <- ia_search(ats_query, num_results = 3)
+items     <- ia_get_items(ids)
+files     <- ia_files(items)
+files
+}
 

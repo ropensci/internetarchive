@@ -15,9 +15,13 @@ in, only the first will be opened.}
 PDF.}
 }
 \value{
-The item id
+Returns the item ID(s) passed to the function.
 }
 \description{
 Open an Internet Archive item in the browser
+}
+\examples{
+# Distinguished Converts to Rome in America
+ia_browse("distinguishedcon00scanuoft")
 }
 

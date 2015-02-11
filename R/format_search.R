@@ -4,7 +4,5 @@
 # @return A string encoded as a URL.
 format_search <- function(terms) {
   terms <- paste0(names(terms), ":(", unname(terms), ")")
-  terms <- paste(terms, collapse = "&")
-  terms
-  # URLencode(terms, reserved = TRUE)
+  paste(terms, collapse = " AND ")
 }

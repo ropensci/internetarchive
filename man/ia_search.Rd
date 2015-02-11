@@ -28,8 +28,15 @@ Perform an advanced search of the Internet Archive, specifying which metadata
 fields to search. Note that all searches are in the form of "contains," i.e.,
 the title contains the search term.
 }
+\examples{
+query1 <- c("title" = "damnation of theron ware")
+ia_search(query1)
+query2 <- c("title" = "damnation of theron ware",
+            "contributor" = "gutenberg")
+ia_search(query2)
+}
 \references{
 See the documentation on the Internet Archive's
-\href{https://archive.org/advancedsearch.php}{advanced search page}.
+  \href{https://archive.org/advancedsearch.php}{advanced search page}.
 }
 

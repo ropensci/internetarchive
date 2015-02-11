@@ -32,4 +32,19 @@ A data frame including the file names of the downloaded files.
 \description{
 Download files for Internet Archive items.
 }
+\examples{
+if(require(dplyr)) {
+  dir <- tempdir()
+  ware_query <- c("title" = "damnation of theron ware",
+                  "contributor" = "gutenberg")
+  ware_query \%>\%
+    ia_search(num_results = 2) \%>\%
+    ia_get_items() \%>\%
+    ia_files() \%>\%
+    filter(type == "txt") \%>\% # download only the files we want
+    group_by(id) \%>\%
+    slice(1) \%>\%
+    ia_download(dir = dir, extended_name = FALSE)
+}
+}
 
