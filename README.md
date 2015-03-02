@@ -4,11 +4,11 @@ This API client for the [Internet Archive](https://archive.org/) is intended pri
 
 ## Installation
 
-Install the [development version](https://github.com/lmullen/internetarchive) from GitHub.
+Install the [development version](https://github.com/ropensci/internetarchive) from GitHub.
 
 ```r
 # install.packages("devtools")
-devtools::install_github("lmullen/internetarchive", build_vignettes = TRUE)
+devtools::install_github("ropensci/internetarchive", build_vignettes = TRUE)
 ```
 
 Then load the package. We will also use [dplyr](https://github.com/hadley/dplyr) for manipulating the retrieved data.

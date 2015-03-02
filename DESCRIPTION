@@ -3,18 +3,18 @@ Type: Package
 Title: An API Client for the Internet Archive
 Description: Search the Internet Archive by any metadata field and download
     files.
-Version: 0.1
+Version: 0.1.1.9000
 Authors@R: c(person("Lincoln", "Mullen",
     role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"))
 License: MIT + file LICENSE
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
-URL: https://github.com/lmullen/internetarchive
-BugReports: https://github.com/lmullen/internetarchive/issues
-Depends: 
+URL: https://github.com/ropensci/internetarchive
+BugReports: https://github.com/ropensci/internetarchive/issues
+Depends:
     R (>= 3.1.0)
-Imports: 
+Imports:
     httr (>= 0.6.1),
     jsonlite (>= 0.9.14),
     dplyr (>= 0.4.1)
