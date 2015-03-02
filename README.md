@@ -245,3 +245,6 @@ ia_search(ats_query) %>%
 Notice that `ia_download()` returns a modified version of the data frame that was passed to it, adding a column `local_file` with the path to the download files.
 
 If the `overwrite =` argument is `FALSE`, then you can pass the same data frame of files to `ia_download()` and it will download only the files that it has not already downloaded.
+
+---
+[![rOpenSCi logo](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
