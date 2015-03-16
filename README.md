@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ropensci/internetarchive.svg)](https://travis-ci.org/ropensci/internetarchive)
+
 # internetarchive: An R client to the Internet Archive API
 
 This API client for the [Internet Archive](https://archive.org/) is intended primarily for searching for items, retrieving metadata for items, and downloading the files associated with the items. The functions can be used with the pipe operator (`%>%`) from [magrittr](https://github.com/smbache/magrittr) and the data manipulation verbs in [dplyr](https://github.com/hadley/dplyr) to create pipelines from searching to downloading. For the full details of what is possible with the Internet Archive API, see their [advanced search help](https://archive.org/advancedsearch.php).
