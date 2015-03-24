@@ -9,7 +9,13 @@ This API client for the [Internet Archive](https://archive.org/) is intended pri
 Installation
 ------------
 
-Install the [development version](https://github.com/ropensci/internetarchive) from GitHub.
+Install this package from CRAN:
+
+``` r
+install.packages("internetarchive")
+```
+
+Or, install the [development version](https://github.com/ropensci/internetarchive) from GitHub with [devtools](http://cran.rstudio.org/web/packages/devtools/).
 
 ``` r
 # install.packages("devtools")
@@ -51,7 +57,7 @@ Usually it is more useful to perform an advanced search. You can construct an ad
 ats_query <- c("publisher" = "american tract society", "year" = "1864")
 ia_search(ats_query, num_results = 20)
 #> 3 total items found. This query requested 20 results.
-#> [1] "vitalgodlinessa00plumgoog" "huguenotsfrance00martgoog"
+#> [1] "huguenotsfrance00martgoog" "vitalgodlinessa00plumgoog"
 #> [3] "sketcheseloquen00wategoog"
 ```
 
@@ -67,8 +73,8 @@ To search by a date range, use the `date` field and the years (or [ISO 8601 date
 ia_search(c("publisher" = "american tract society", date = "1840 TO 1850"))
 #> 88 total items found. This query requested 5 results.
 #> [1] "scripturebiogra00hookgoog" "memoirmrssarahl00hookgoog"
-#> [3] "historyreformat22aubgoog"  "circulationandc00socigoog"
-#> [5] "historyreformat09aubgoog"
+#> [3] "circulationandc00socigoog" "historyreformat09aubgoog" 
+#> [5] "historyreformat22aubgoog"
 ```
 
 Getting item metadata and files

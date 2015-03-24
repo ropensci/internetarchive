@@ -22,7 +22,13 @@ This API client for the [Internet Archive](https://archive.org/) is intended pri
 
 ## Installation
 
-Install the [development version](https://github.com/ropensci/internetarchive) from GitHub.
+Install this package from CRAN:
+
+```{r eval=FALSE}
+install.packages("internetarchive")
+```
+
+Or, install the [development version](https://github.com/ropensci/internetarchive) from GitHub with [devtools](http://cran.rstudio.org/web/packages/devtools/).
 
 ```{r eval=FALSE}
 # install.packages("devtools")
