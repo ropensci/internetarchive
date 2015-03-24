@@ -3,7 +3,7 @@
 #' @param item_id A character vector containing the ID for an Internet Archive
 #'   item. This argument is vectorized, so you can retrieve multiple items at
 #'   once.
-#' @param silence If false, print the item IDs as they are retrieved
+#' @param silence If false, print the item IDs as they are retrieved.
 #' @return A list containing the metadata returned by the API. List names
 #'   correspond to the item IDs.
 #' @examples

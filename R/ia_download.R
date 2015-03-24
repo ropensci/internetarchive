@@ -14,6 +14,7 @@
 #'   overwrite them on disk if they have already been downloaded. If
 #'   \code{FALSE}, then if a file already exists on disk it will not be
 #'   downloaded again but other downloads will proceed normally.
+#' @param silence If false, print the item IDs as they are downloaded.
 #' @return A data frame including the file names of the downloaded files.
 #' @examples
 #' if(require(dplyr)) {
@@ -27,16 +28,16 @@
 #' }
 #' @export
 ia_download <- function(files, dir = ".", extended_name = TRUE,
-                        overwrite = FALSE) {
+                        overwrite = FALSE, silence = FALSE) {
   url <- "https://archive.org/download/"
   files %>%
     mutate(url = paste0(url, id, file)) %>%
     rowwise() %>%
     do(download_row(., dir = dir, extended_name = extended_name,
-                    overwrite = overwrite))
+                    overwrite = overwrite, silence = silence))
 }
 
-download_row <- function(row, dir, extended_name, overwrite) {
+download_row <- function(row, dir, extended_name, overwrite, silence) {
   if (extended_name) {
     row$local_file <- paste0(dir, "/", row$id, gsub("/", "-", row$file))
   } else {
@@ -44,7 +45,7 @@ download_row <- function(row, dir, extended_name, overwrite) {
   }
 
   if (overwrite | !file.exists(row$local_file)) {
-    message(paste("Downloading", row$local_file))
+    if(!silence) message(paste("Downloading", row$local_file))
     GET(row$url, write_disk(row$local_file, overwrite = overwrite))
     row$downloaded <- TRUE
   }

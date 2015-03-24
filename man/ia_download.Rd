@@ -4,7 +4,8 @@
 \alias{ia_download}
 \title{Download files for Internet Archive items.}
 \usage{
-ia_download(files, dir = ".", extended_name = TRUE, overwrite = FALSE)
+ia_download(files, dir = ".", extended_name = TRUE, overwrite = FALSE,
+  silence = FALSE)
 }
 \arguments{
 \item{files}{A data frame of files returned by \link{ia_files}. You should
@@ -25,6 +26,8 @@ downloaded file will have a filename in the following format:
 overwrite them on disk if they have already been downloaded. If
 \code{FALSE}, then if a file already exists on disk it will not be
 downloaded again but other downloads will proceed normally.}
+
+\item{silence}{If false, print the item IDs as they are downloaded.}
 }
 \value{
 A data frame including the file names of the downloaded files.

@@ -11,7 +11,7 @@ ia_get_items(item_id, silence = FALSE)
 item. This argument is vectorized, so you can retrieve multiple items at
 once.}
 
-\item{silence}{If false, print the item IDs as they are retrieved}
+\item{silence}{If false, print the item IDs as they are retrieved.}
 }
 \value{
 A list containing the metadata returned by the API. List names
