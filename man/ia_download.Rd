@@ -35,11 +35,7 @@ Download files for Internet Archive items.
 \examples{
 if(require(dplyr)) {
   dir <- tempdir()
-  ware_query <- c("title" = "damnation of theron ware",
-                  "contributor" = "gutenberg")
-  ware_query \%>\%
-    ia_search(num_results = 2) \%>\%
-    ia_get_items() \%>\%
+  ia_get_items("thedamnationofth00133gut") \%>\%
     ia_files() \%>\%
     filter(type == "txt") \%>\% # download only the files we want
     group_by(id) \%>\%
