@@ -1,5 +1,6 @@
 context("Files, metadata, and downloading")
 
+skip_on_cran()
 library(dplyr, warn.conflicts = FALSE)
 dir <- tempdir()
 items <- ia_get_items("TheLifeOfFatherHecker", silence = TRUE)
