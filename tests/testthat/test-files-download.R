@@ -32,6 +32,7 @@ test_that("ia_metadata() returns a data frame", {
 
 test_that("ia_get_item() returns a list", {
   expect_is(items, "list")
+  items$TheLifeOfFatherHecker$server <- NULL # server may vary
   expect_equal_to_reference(items, "hecker_items.rds")
 })
 
