@@ -24,13 +24,17 @@ test_that("ia_downloads() returns a data frame", {
                             "local_file", "downloaded"))
 })
 
-test_that("metadata is returned correctly", {
+test_that("ia_metadata() returns a data frame", {
   expect_is(meta, c("data.frame", "tbl_df"))
   expect_named(meta, c("id", "field", "value"))
   expect_equal_to_reference(meta, "hecker_meta.rds")
 })
 
-test_that("items are returned correctly", {
+test_that("ia_get_item() returns a list", {
   expect_is(items, "list")
   expect_equal_to_reference(items, "hecker_items.rds")
+})
+
+test_that("ia_item_id() returns item ids", {
+  expect_equal(ia_item_id(items), "TheLifeOfFatherHecker")
 })
