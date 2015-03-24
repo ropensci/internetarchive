@@ -1,7 +1,7 @@
 Package: internetarchive
 Type: Package
 Title: An API Client for the Internet Archive
-Description: Search the Internet Archive by any metadata field and download
+Description: Search the Internet Archive, retrieve metadata, and download
     files.
 Version: 0.1.2
 Authors@R: c(person("Lincoln", "Mullen",

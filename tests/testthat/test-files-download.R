@@ -1,6 +1,5 @@
 context("Files, metadata, and downloading")
 
-skip_on_cran()
 library(dplyr, warn.conflicts = FALSE)
 dir <- tempdir()
 items <- ia_get_items("TheLifeOfFatherHecker", silence = TRUE)
@@ -33,8 +32,7 @@ test_that("ia_metadata() returns a data frame", {
 
 test_that("ia_get_item() returns a list", {
   expect_is(items, "list")
-  items$TheLifeOfFatherHecker$server <- NULL # server may vary
-  expect_equal_to_reference(items, "hecker_items.rds")
+  expect_named(items, )
 })
 
 test_that("ia_item_id() returns item ids", {

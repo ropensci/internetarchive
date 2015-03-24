@@ -20,17 +20,7 @@ Then load the package. We will also use [dplyr](https://github.com/hadley/dplyr)
 
 ``` r
 library("internetarchive")
-library("dplyr")
-#> 
-#> Attaching package: 'dplyr'
-#> 
-#> The following object is masked from 'package:stats':
-#> 
-#>     filter
-#> 
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
+library("dplyr", warn.conflicts = FALSE)
 ```
 
 Basic search and browse
@@ -90,46 +80,13 @@ To get a single item's metadata, you can pass its identifier to the `ia_get_item
 
 ``` r
 hecker <- ia_get_items("TheLifeOfFatherHecker")
-#> Getting TheLifeOfFatherHecker
 ```
 
 The result is a list where the names of items in the list are the item identifiers, and the rest of the list is the metadata. This nested list can be difficult to work with, so the `ia_metadata()` returns a data frame of the metadata, and `ia_files()` returns a data frame of the files associated with the item.
 
 ``` r
 ia_metadata(hecker)
-#> Source: local data frame [25 x 3]
-#> 
-#>                       id       field
-#> 1  TheLifeOfFatherHecker  identifier
-#> 2  TheLifeOfFatherHecker   mediatype
-#> 3  TheLifeOfFatherHecker collection1
-#> 4  TheLifeOfFatherHecker collection2
-#> 5  TheLifeOfFatherHecker collection3
-#> 6  TheLifeOfFatherHecker     creator
-#> 7  TheLifeOfFatherHecker        date
-#> 8  TheLifeOfFatherHecker description
-#> 9  TheLifeOfFatherHecker    language
-#> 10 TheLifeOfFatherHecker  licenseurl
-#> ..                   ...         ...
-#> Variables not shown: value (chr)
 ia_files(hecker)
-#> Source: local data frame [14 x 3]
-#> 
-#>                       id                                   file    type
-#> 1  TheLifeOfFatherHecker            /TheLifeOfFatherHecker.djvu    djvu
-#> 2  TheLifeOfFatherHecker            /TheLifeOfFatherHecker.epub    epub
-#> 3  TheLifeOfFatherHecker             /TheLifeOfFatherHecker.gif     gif
-#> 4  TheLifeOfFatherHecker             /TheLifeOfFatherHecker.pdf     pdf
-#> 5  TheLifeOfFatherHecker        /TheLifeOfFatherHecker_abbyy.gz      gz
-#> 6  TheLifeOfFatherHecker /TheLifeOfFatherHecker_archive.torrent torrent
-#> 7  TheLifeOfFatherHecker        /TheLifeOfFatherHecker_djvu.txt     txt
-#> 8  TheLifeOfFatherHecker        /TheLifeOfFatherHecker_djvu.xml     xml
-#> 9  TheLifeOfFatherHecker       /TheLifeOfFatherHecker_files.xml     xml
-#> 10 TheLifeOfFatherHecker         /TheLifeOfFatherHecker_jp2.zip     zip
-#> 11 TheLifeOfFatherHecker     /TheLifeOfFatherHecker_meta.sqlite  sqlite
-#> 12 TheLifeOfFatherHecker        /TheLifeOfFatherHecker_meta.xml     xml
-#> 13 TheLifeOfFatherHecker    /TheLifeOfFatherHecker_scandata.xml     xml
-#> 14 TheLifeOfFatherHecker        /TheLifeOfFatherHecker_text.pdf     pdf
 ```
 
 These functions can also retrieve the information for multiple items when used in a pipeline. Here we search for all the items about Hecker, retrieve their metadata, and turn it into a data frame. We then filter the data frame to get only the titles.
@@ -140,48 +97,6 @@ ia_keyword_search("isaac hecker", num_results = 20) %>%
   ia_metadata() %>% 
   filter(field == "title") %>% 
   select(value)
-#> 19 total items found. This query requested 20 results.
-#> Getting TheLifeOfFatherHecker
-#> Getting fatherhecker01sedg
-#> Getting fatherhecker00sedggoog
-#> Getting lifeoffatherheck01elli
-#> Getting lifeoffatherheck00elli
-#> Getting abitunpublished00heckgoog
-#> Getting ERIC_ED250755
-#> Getting TheLightOfTheCrossV2
-#> Getting questionsofsoul00heck
-#> Getting questionssoul01heckgoog
-#> Getting catholicchurchi00heckgoog
-#> Getting questionssoul00heckgoog
-#> Getting cu31924031386414
-#> Getting aspirationsofnat00heck
-#> Getting uncatholicismeam00dela
-#> Getting a587173700heckuoft
-#> Getting cu31924029381013
-#> Getting a589111500unknuoft
-#> Getting aspirationsofnat00heckuoft
-#> Source: local data frame [19 x 1]
-#> 
-#>                                                                          value
-#> 1                                                    The Life Of Father Hecker
-#> 2                                                                Father Hecker
-#> 3                                                                Father Hecker
-#> 4                                                    The life of Father Hecker
-#> 5                                                    The life of Father Hecker
-#> 6  A Bit of Unpublished Correspondence Between Henry D. Thoreau and Isaac T. H
-#> 7  ERIC ED250755: Rhetoric and Public Address: Abstracts of Doctoral Dissertat
-#> 8  Volume 2: The Light Of The Cross In The Twentieth Century; the influence of
-#> 9                                                        Questions of the soul
-#> 10                                                       Questions of the Soul
-#> 11 The Catholic Church in the United States: Its Rise, Relations with the Repu
-#> 12                                                       Questions of the Soul
-#> 13                                                       Questions of the soul
-#> 14                                                       Aspirations of nature
-#> 15                                                   Un catholicisme américain
-#> 16                                                       Aspirations of nature
-#> 17 The church and the age; an exposition of the Catholic Church in view of the
-#> 18 Die Kirche betrachtet mit Rücksicht auf die gegenwärtigen Streitfragen und 
-#> 19                                                       Aspirations of nature
 ```
 
 Downloading files
@@ -199,21 +114,6 @@ ia_search(ats_query) %>%
   slice(1) %>% 
   ia_download(dir = dir, overwrite = FALSE) %>% 
   glimpse()
-#> 3 total items found. This query requested 5 results.
-#> Getting vitalgodlinessa00plumgoog
-#> Getting huguenotsfrance00martgoog
-#> Getting sketcheseloquen00wategoog
-#> Downloading /var/folders/k3/yk84g4bd50b1mrltx28c_0280000gn/T//RtmpV6NIT9/huguenotsfrance00martgoog-huguenotsfrance00martgoog_djvu.txt
-#> Downloading /var/folders/k3/yk84g4bd50b1mrltx28c_0280000gn/T//RtmpV6NIT9/sketcheseloquen00wategoog-sketcheseloquen00wategoog_djvu.txt
-#> Downloading /var/folders/k3/yk84g4bd50b1mrltx28c_0280000gn/T//RtmpV6NIT9/vitalgodlinessa00plumgoog-vitalgodlinessa00plumgoog_djvu.txt
-#> Observations: 3
-#> Variables:
-#> $ id         (chr) "huguenotsfrance00martgoog", "sketcheseloquen00wate...
-#> $ file       (chr) "/huguenotsfrance00martgoog_djvu.txt", "/sketchesel...
-#> $ type       (chr) "txt", "txt", "txt"
-#> $ url        (chr) "https://archive.org/download/huguenotsfrance00mart...
-#> $ local_file (chr) "/var/folders/k3/yk84g4bd50b1mrltx28c_0280000gn/T//...
-#> $ downloaded (lgl) TRUE, TRUE, TRUE
 ```
 
 Notice that `ia_download()` returns a modified version of the data frame that was passed to it, adding a column `local_file` with the path to the download files.

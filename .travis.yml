@@ -1,6 +1,11 @@
 language: r
 warnings_are_errors: true
 
+r_check_args: "--as-cran --timings"
+
+r_binary_packages:
+- dplyr
+
 notifications:
   email:
     on_success: change

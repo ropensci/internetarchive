@@ -36,6 +36,7 @@ A data frame including the file names of the downloaded files.
 Download files for Internet Archive items.
 }
 \examples{
+\dontrun{
 if(require(dplyr)) {
   dir <- tempdir()
   ia_get_items("thedamnationofth00133gut") \%>\%
@@ -44,6 +45,7 @@ if(require(dplyr)) {
     group_by(id) \%>\%
     slice(1) \%>\%
     ia_download(dir = dir, extended_name = FALSE)
+}
 }
 }
 

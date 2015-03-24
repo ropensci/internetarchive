@@ -17,6 +17,7 @@
 #' @param silence If false, print the item IDs as they are downloaded.
 #' @return A data frame including the file names of the downloaded files.
 #' @examples
+#' \dontrun{
 #' if(require(dplyr)) {
 #'   dir <- tempdir()
 #'   ia_get_items("thedamnationofth00133gut") %>%
@@ -25,6 +26,7 @@
 #'     group_by(id) %>%
 #'     slice(1) %>%
 #'     ia_download(dir = dir, extended_name = FALSE)
+#' }
 #' }
 #' @export
 ia_download <- function(files, dir = ".", extended_name = TRUE,

@@ -13,7 +13,7 @@ This API client for the [Internet Archive](https://archive.org/) is intended pri
 
 ## Installation
 
-Install the [development version](https://github.com/ropensci/internetarchive) from GitHub.
+Install the [development version](https://github.com/ropensci/internetarchive) from GitHub with [devtools](http://cran.rstudio.org/web/packages/devtools/).
 
 ```{r eval=FALSE}
 # install.packages("devtools")
@@ -22,7 +22,7 @@ devtools::install_github("ropensci/internetarchive", build_vignettes = TRUE)
 
 Then load the package. We will also use [dplyr](https://github.com/hadley/dplyr) for manipulating the retrieved data.
 
-```{r}
+```{r message=FALSE}
 library("internetarchive")
 library("dplyr")
 ```
@@ -47,7 +47,7 @@ Usually it is more useful to perform an advanced search. You can construct an ad
 
 ```{r}
 ats_query <- c("publisher" = "american tract society", "year" = "1864")
-ia_search(ats_query, num_results = 20)
+ia_search(ats_query, num_results = 3)
 ```
 
 You can change the number of items returned by the search using the `num_results =` argument, and you can request subsequent pages of results with the `page =` argument.
@@ -58,7 +58,7 @@ Notice that `ia_search()` and `ia_keyword_search()` both return a character vect
 
 To search by a date range, use the `date` field and the years (or [ISO 8601 dates](http://en.wikipedia.org/wiki/ISO_8601)) separated by `TO`. Here we search for publications by the American Tract Society in the 1840s.
 
-```{r}
+```{r, eval=FALSE}
 ia_search(c("publisher" = "american tract society", date = "1840 TO 1850"))
 ```
 
@@ -68,21 +68,21 @@ Once you have retrieved a list of items, you can retrieve their metadata and the
 
 To get a single item's metadata, you can pass its identifier to the `ia_get_items()` function.
 
-```{r}
+```{r, eval=FALSE}
 hecker <- ia_get_items("TheLifeOfFatherHecker")
 ```
 
 The result is a list where the names of items in the list are the item identifiers, and the rest of the list is the metadata. This nested list can be difficult to work with, so the `ia_metadata()` returns a data frame of the metadata, and `ia_files()` returns a data frame of the files associated with the item.
 
-```{r}
+```{r, eval=FALSE}
 ia_metadata(hecker)
 ia_files(hecker)
 ```
 
 These functions can also retrieve the information for multiple items when used in a pipeline. Here we search for all the items about Hecker, retrieve their metadata, and turn it into a data frame. We then filter the data frame to get only the titles.
 
-```{r}
-ia_keyword_search("isaac hecker", num_results = 20) %>% 
+```{r, eval=FALSE}
+ia_keyword_search("isaac hecker", num_results = 3) %>% 
   ia_get_items() %>% 
   ia_metadata() %>% 
   filter(field == "title") %>% 
@@ -93,9 +93,9 @@ ia_keyword_search("isaac hecker", num_results = 20) %>%
 
 The `ia_download()` function will download all the files in a data frame returned from `ia_files()`. This function should be used with caution, and you should first filter the data frame to download only the files that you wish. In the following example, we retrieve a list of all the files associated with items published by the American Tract Society in 1864. Then we filter the list so we get only text files, then we pick only the first text file associated with each item. Finally we download the files to a directory we specify (in this case, a temporary directory).
 
-```{r}
+```{r, eval=FALSE}
 dir <- tempdir()
-ia_search(ats_query) %>% 
+ia_search(ats_query, num_results = 2) %>% 
   ia_get_items() %>% 
   ia_files() %>% 
   filter(type == "txt") %>% 

@@ -21,10 +21,12 @@ A list containing the metadata returned by the API. List names
 Get the metadata for Internet Archive items
 }
 \examples{
+\dontrun{
 ia_get_items("thedamnationofth00133gut")
 
 ats_query <- c("publisher" = "american tract society")
 ids       <- ia_search(ats_query, num_results = 2)
 ia_get_items(ids)
+}
 }
 

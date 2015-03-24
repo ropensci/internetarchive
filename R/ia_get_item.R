@@ -7,11 +7,13 @@
 #' @return A list containing the metadata returned by the API. List names
 #'   correspond to the item IDs.
 #' @examples
+#' \dontrun{
 #' ia_get_items("thedamnationofth00133gut")
 #'
 #' ats_query <- c("publisher" = "american tract society")
 #' ids       <- ia_search(ats_query, num_results = 2)
 #' ia_get_items(ids)
+#' }
 #' @export
 ia_get_items <- function(item_id, silence = FALSE) {
   path <- paste("details", item_id, sep = "/")
