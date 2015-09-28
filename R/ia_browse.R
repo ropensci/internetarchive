@@ -12,6 +12,6 @@
 #' @export
 ia_browse <- function(item_id, type = c("details", "stream")) {
   type <- match.arg(type)
-  browseURL(paste("https://archive.org", type, item_id[1], sep = "/"))
+  utils::browseURL(paste("https://archive.org", type, item_id[1], sep = "/"))
   return(item_id)
 }
