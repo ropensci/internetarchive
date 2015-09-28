@@ -1,22 +1,13 @@
-This is resubmission of the internetarchive package.
-
-## Changes since last submission
-
-- A failing test has been rewritten
-- NEWS file now has the standard name
-- R CMD check has been rerun on all test environments
+This is patch release to the `internetarchive` package. The `knitr` package has
+changed its dependencies, so `rmarkdown` must be listed as a suggested package 
+when using `knitr` for a vignette.
 
 ## Test environments
 
-* local OS X install, R 3.1.3
-* docker (R devel)
-* ubuntu 12.04 (on travis-ci), R 3.1.2
-* win-builder (devel and release)
+* local OS X install, R 3.2.2
+* Ubuntu 14.04, R 3.2.2 (via Travis CI)
+* win-builder (R-devel and R-release)
 
 ## R CMD check results
 
-There were no ERRORs or WARNINGs. All NOTEs relate to the submission of a new package.
-
-## Check time
-
-Every effort has been made to make minimize the check time by running as few calls to the Internet Archive API as possible.
+There were no ERRORs, WARNINGs or NOTEs. Every effort has been made to keep the check time to a minimum while still exercising all of the features of the package.
