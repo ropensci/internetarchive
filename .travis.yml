@@ -4,6 +4,7 @@ sudo: required
 
 r_binary_packages:
 - dplyr
+- knitr
 
 notifications:
   email:
