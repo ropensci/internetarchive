@@ -1,10 +1,10 @@
 language: r
-warnings_are_errors: true
-sudo: required
-
-r_binary_packages:
-- dplyr
-- knitr
+r:
+- oldrel
+- release
+- devel
+sudo: false
+cache: packages
 
 notifications:
   email:
