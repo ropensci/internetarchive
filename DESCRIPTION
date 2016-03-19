@@ -19,7 +19,9 @@ Imports:
     httr (>= 0.6.1),
     jsonlite (>= 0.9.14),
     dplyr (>= 0.4.1)
-Suggests: knitr,
+Suggests:
+    knitr,
     testthat,
     rmarkdown
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
