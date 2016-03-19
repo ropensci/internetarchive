@@ -11,20 +11,11 @@ vignette: >
 
 This API client for the [Internet Archive](https://archive.org/) is intended primarily for searching for items, retrieving metadata for items, and downloading the files associated with the items. The functions can be used with the pipe operator (`%>%`) from [magrittr](https://github.com/smbache/magrittr) and the data manipulation verbs in [dplyr](https://github.com/hadley/dplyr) to create pipelines from searching to downloading. For the full details of what is possible with the Internet Archive API, see their [advanced search help](https://archive.org/advancedsearch.php).
 
-## Installation
-
-Install the [development version](https://github.com/ropensci/internetarchive) from GitHub with [devtools](http://cran.rstudio.org/web/packages/devtools/).
-
-```{r eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("ropensci/internetarchive", build_vignettes = TRUE)
-```
-
-Then load the package. We will also use [dplyr](https://github.com/hadley/dplyr) for manipulating the retrieved data.
+First load the package. We will also use [dplyr](https://github.com/hadley/dplyr) for manipulating the retrieved data.
 
 ```{r message=FALSE}
-library("internetarchive")
-library("dplyr")
+library(internetarchive)
+library(dplyr)
 ```
 
 ## Basic search and browse
