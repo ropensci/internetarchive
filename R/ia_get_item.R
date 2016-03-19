@@ -20,8 +20,7 @@ ia_get_items <- function(item_id, silence = FALSE) {
   if (!silence) message(paste("Getting", item_id))
   req <- GET("https://archive.org/", path = path, query = list(output = "json"))
   warn_for_status(req)
-  result <- content(req, as = "text")
-  if (identical(result, "")) stop("")
-  fromJSON(result, simplifyVector = FALSE)
+  result <- content(req, as = "parsed", encoding = "UTF-8")
+  result
 }
 ia_get_items <- Vectorize(ia_get_items, SIMPLIFY = FALSE)

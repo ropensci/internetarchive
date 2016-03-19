@@ -36,9 +36,7 @@ ia_search <- function(terms, num_results = 5, page = 1, print_url = FALSE,
   if (print_url) message(url)
   req <- GET(url)
   warn_for_status(req)
-  result <- content(req, as = "text")
-  if (identical(result, "")) stop("")
-  response <- fromJSON(result, simplifyVector = FALSE)
+  response <- content(req, as = "parsed", encoding = "UTF-8")
 
   if (print_total)
     message(paste(response$response$numFound, "total items found.",

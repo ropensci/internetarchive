@@ -18,13 +18,11 @@
 #' @return A data frame including the file names of the downloaded files.
 #' @examples
 #' \dontrun{
-#' if(require(dplyr)) {
+#' if (require(dplyr)) {
 #'   dir <- tempdir()
 #'   ia_get_items("thedamnationofth00133gut") %>%
 #'     ia_files() %>%
 #'     filter(type == "txt") %>% # download only the files we want
-#'     group_by(id) %>%
-#'     slice(1) %>%
 #'     ia_download(dir = dir, extended_name = FALSE)
 #' }
 #' }
@@ -47,7 +45,7 @@ download_row <- function(row, dir, extended_name, overwrite, silence) {
   }
 
   if (overwrite | !file.exists(row$local_file)) {
-    if(!silence) message(paste("Downloading", row$local_file))
+    if (!silence) message(paste("Downloading", row$local_file))
     GET(row$url, write_disk(row$local_file, overwrite = overwrite))
     row$downloaded <- TRUE
   }

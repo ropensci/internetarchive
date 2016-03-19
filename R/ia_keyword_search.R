@@ -20,9 +20,7 @@ ia_keyword_search <- function(keywords, num_results = 5, page = 1,
   url <-  modify_url(base, path = path, query = query)
   req <- GET(url)
   warn_for_status(req)
-  result <- content(req, as = "text")
-  if (identical(result, "")) stop("")
-  response <- fromJSON(result, simplifyVector = FALSE)
+  response <- content(req, as = "parsed", encoding = "UTF-8")
 
   if (print_total)
     message(paste(response$response$numFound, "total items found.",

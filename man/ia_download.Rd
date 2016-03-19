@@ -37,13 +37,11 @@ Download files for Internet Archive items.
 }
 \examples{
 \dontrun{
-if(require(dplyr)) {
+if (require(dplyr)) {
   dir <- tempdir()
   ia_get_items("thedamnationofth00133gut") \%>\%
     ia_files() \%>\%
     filter(type == "txt") \%>\% # download only the files we want
-    group_by(id) \%>\%
-    slice(1) \%>\%
     ia_download(dir = dir, extended_name = FALSE)
 }
 }
