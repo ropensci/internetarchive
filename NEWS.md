@@ -1,3 +1,7 @@
+# internetarchive 0.1.5
+
+- Update package dependencies
+
 # internetarchive 0.1.4
 
 - Add `rmarkdown` as a suggested package since `knitr` has changed for vignettes

@@ -3,8 +3,8 @@ Type: Package
 Title: An API Client for the Internet Archive
 Description: Search the Internet Archive, retrieve metadata, and download
     files.
-Version: 0.1.4.9000
-Date: 2015-09-28
+Version: 0.1.5
+Date: 2016-03-19
 Authors@R: c(person("Lincoln", "Mullen",
     role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"))
