@@ -11,5 +11,4 @@ ia_wayback_search <- function(wayback_url, timestamp = NULL) {
   # headers are not application/json so the use of jsonlite is required.
   response <- jsonlite::fromJSON(content(req,as = "text",encoding = "UTF-8"))
 
-
 }
