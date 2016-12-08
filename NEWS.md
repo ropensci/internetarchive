@@ -1,3 +1,7 @@
+# internetarchive 0.1.6
+
+- Fix failing test related to change at Internet Archive
+
 # internetarchive 0.1.5
 
 - Update package dependencies

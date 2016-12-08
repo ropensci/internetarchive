@@ -1,4 +1,4 @@
-This minor update to the `internetarchive` package fixes a failing test as requested by CRAN maintainers. The test was failing due to a change at the Internet Archive.
+This  update to the `internetarchive` package fixes a failing test as requested by CRAN maintainers. The test was failing due to a change at the Internet Archive.
 
 ## Test environments
 
