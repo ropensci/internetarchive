@@ -18,5 +18,5 @@ ia_metadata <- function(items) {
                field = names(m), value = unname(m))
   }
   dfs <- lapply(items, metadata_to_data_frame)
-  rbind_all(dfs)
+  bind_rows(dfs)
 }

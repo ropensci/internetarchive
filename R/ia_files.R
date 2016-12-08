@@ -18,5 +18,5 @@ ia_files <- function(items) {
                file = f, type = file_ext(file))
   }
   dfs <- lapply(items, files_to_data_frame)
-  rbind_all(dfs)
+  bind_rows(dfs)
 }

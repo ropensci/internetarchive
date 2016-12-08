@@ -5,7 +5,7 @@
 #' files (\link{ia_files}) in a pipeable interface.
 #'
 #' @import httr
-#' @importFrom dplyr rbind_all data_frame %>% mutate rowwise do as_data_frame
+#' @importFrom dplyr bind_rows data_frame %>% mutate rowwise do as_data_frame
 #' @importFrom tools file_ext
 #' @name internetarchive
 NULL
