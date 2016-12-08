@@ -9,6 +9,7 @@ files <- ia_files(items) %>%
 downloads <- ia_download(files, dir, silence = TRUE)
 
 test_that("ia_downloads() downloads a file", {
+  skip_on_cran()
   expect_equal_to_reference(readLines(downloads$local_file[1]),
                             "hecker_txt.rds")
 })
@@ -25,6 +26,7 @@ test_that("ia_downloads() returns a data frame", {
 })
 
 test_that("ia_metadata() returns a data frame", {
+  skip_on_cran()
   expect_is(meta, c("data.frame", "tbl_df"))
   expect_named(meta, c("id", "field", "value"))
   expect_equal_to_reference(meta, "hecker_meta.rds")
