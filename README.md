@@ -1,5 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Build Status](https://travis-ci.org/ropensci/internetarchive.svg?branch=master)](https://travis-ci.org/ropensci/internetarchive)
+[![codecov.io](https://codecov.io/github/ropensci/internetarchive/coverage.svg?branch=master)](https://codecov.io/github/ropensci/internetarchive?branch=master)
 
 internetarchive: An R client to the Internet Archive API
 ========================================================
