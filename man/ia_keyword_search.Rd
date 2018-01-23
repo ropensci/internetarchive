@@ -25,4 +25,3 @@ Perform an simple keyword search of the Internet Archive.
 \examples{
 ia_keyword_search("isaac hecker", num_results = 20)
 }
-

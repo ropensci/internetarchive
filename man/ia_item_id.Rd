@@ -22,4 +22,3 @@ ids       <- ia_search(ats_query, num_results = 3)
 items     <- ia_get_items(ids)
 ia_item_id(items)
 }
-

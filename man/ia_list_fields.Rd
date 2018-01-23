@@ -15,4 +15,3 @@ List accepted metadata fields
 \examples{
 ia_list_fields()
 }
-

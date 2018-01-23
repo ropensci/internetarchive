@@ -39,4 +39,3 @@ ia_search(query2)
 See the documentation on the Internet Archive's
   \href{https://archive.org/advancedsearch.php}{advanced search page}.
 }
-

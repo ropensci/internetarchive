@@ -29,4 +29,3 @@ ids       <- ia_search(ats_query, num_results = 2)
 ia_get_items(ids)
 }
 }
-

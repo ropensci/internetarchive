@@ -25,4 +25,3 @@ items     <- ia_get_items(ids)
 metadata  <- ia_metadata(items)
 metadata
 }
-

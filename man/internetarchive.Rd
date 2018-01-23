@@ -8,4 +8,3 @@ This client permits you to search (\link{ia_search}), retrieve item metadata
 (\link{ia_metadata}) and associated files (\link{ia_files}), and download
 files (\link{ia_files}) in a pipeable interface.
 }
-
