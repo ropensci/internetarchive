@@ -1,7 +1,6 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
+pagetitle: "An API Client for the Internet Archive"
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -14,10 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+# internetarchive
+
 [![Build Status](https://travis-ci.org/ropensci/internetarchive.svg?branch=master)](https://travis-ci.org/ropensci/internetarchive)
 [![codecov.io](https://codecov.io/github/ropensci/internetarchive/coverage.svg?branch=master)](https://codecov.io/github/ropensci/internetarchive?branch=master)
 
-# internetarchive: An R client to the Internet Archive API
+## Overview
 
 This API client for the [Internet Archive](https://archive.org/) is intended primarily for searching for items, retrieving metadata for items, and downloading the files associated with items. The functions can be used with the pipe operator (`%>%`) from [magrittr](https://github.com/smbache/magrittr) and the data manipulation verbs in [dplyr](https://github.com/hadley/dplyr) to create pipelines from searching to downloading. For the full details of what is possible with the Internet Archive API, see their [advanced search help](https://archive.org/advancedsearch.php).
 
