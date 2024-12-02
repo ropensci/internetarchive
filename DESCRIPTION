@@ -8,6 +8,7 @@ Date: 2016-12-08
 Authors@R: c(person("Lincoln", "Mullen",
     role = c("aut", "cre"),
     email = "lincoln@lincolnmullen.com"))
+Maintainer: Ahmet Akkoc <themadprogramer@gmail.com>
 License: MIT + file LICENSE
 LazyData: TRUE
 Roxygen: list(wrap = FALSE)
